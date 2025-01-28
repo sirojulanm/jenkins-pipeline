@@ -6,9 +6,19 @@ pipeline {
     // }
     agent any
     stages {
-        stage("Hello anam") { 
+        stage("Build") { 
             steps {
-                echo "Hello pipeline build by anam"
+                echo "Hello Build Processed"
+            }
+        }
+        stage("Test") { 
+            steps {
+                echo "Hello Test Processed"
+            }
+        }
+        stage("Deploy") { 
+            steps {
+                echo "Hello Deploy Processed"
             }
         }
     }
