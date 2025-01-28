@@ -13,7 +13,8 @@ pipeline {
     }
 
     triggers {
-        cron("*/5 * * * *")
+        // cron("*/5 * * * *")
+        pollSCM('* * * * *')
     }
 
     parameters {
@@ -75,6 +76,10 @@ pipeline {
             }
         }
         stage("Deploy") { 
+            input {
+                message "can we deploy?"
+                ok "yes, of course"
+            }
             steps {
                 echo "Hello Deploy Processed 1"
                 echo "Hello Deploy Processed 2"
