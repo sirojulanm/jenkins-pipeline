@@ -12,10 +12,10 @@ pipeline {
         APP = credentials("anam_rahasia")
     }
 
-    triggers {
+    // triggers {
         // cron("*/5 * * * *")
         // pollSCM('* * * * *')
-    }
+    // }
 
     parameters {
         string(name: "NAME", defaultValue: "Guest", description: "what is your name")
