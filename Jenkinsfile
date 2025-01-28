@@ -6,6 +6,13 @@ pipeline {
     // }
     agent any
     stages {
+        stage("Prepare") { 
+            steps {
+                echo "Start test: ${env.JOB_NAME}"
+                echo "Start build: ${env.BUILD_NUMBER}"
+                echo "branch name: ${env.BRANCH_NAME}"
+            }
+        }
         stage("Build") { 
             steps {
                 script {
