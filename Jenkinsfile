@@ -32,6 +32,21 @@ pipeline {
     
     stages {
 
+        stage("Preparation Pararel") { 
+            parallel {
+                stage("Prepare Java") {
+                    steps {
+                        echo("Prepare Java")
+                    }
+                }
+                stage("Prepare Maven") {
+                    steps {
+                        echo("Prepare Maven")
+                    }
+                }
+            }
+        }
+
         stage("Preparation") { 
             stages {
                 stage("Prepare Java") {
