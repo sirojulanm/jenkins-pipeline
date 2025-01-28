@@ -17,6 +17,7 @@ pipeline {
             steps {
                 echo "Hello Test Processed 1"
                 echo "Hello Test Processed 2"
+                slepp(5)
                 echo "Hello Test Processed 3"
             }
         }
