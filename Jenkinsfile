@@ -9,13 +9,11 @@ pipeline {
     environment {
         AUTHOR = "Anam"
         EMAIL = "anam@gmail.com"
+        APP = credential("anam_rahasia")
     }
     
     stages {
         stage("Prepare") { 
-            environment {
-                APP = credential("anam_rahasia")
-            }
             steps {
                 echo "author: ${AUTHOR}"
                 echo "email: ${EMAIL}"
