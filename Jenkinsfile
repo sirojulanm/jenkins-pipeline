@@ -5,9 +5,17 @@ pipeline {
     //     }
     // }
     agent any
+
+    environment {
+        AUTHOR = "Anam"
+        EMAIL = "anam@gmail.com"
+    }
+    
     stages {
         stage("Prepare") { 
             steps {
+                echo "author: ${AUTHOR}"
+                echo "email: ${EMAIL}"
                 echo "Start test: ${env.JOB_NAME}"
                 echo "Start build: ${env.BUILD_NUMBER}"
                 echo "branch name: ${env.BRANCH_NAME}"
