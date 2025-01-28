@@ -79,6 +79,9 @@ pipeline {
             input {
                 message "can we deploy?"
                 ok "yes, of course"
+                parameters {
+                    choice(name: "SOCIAL_MEDIA", choices: ['dev','qa','prod'], description: "wich environment?")
+                }
             }
             steps {
                 echo "Hello Deploy Processed 1"
