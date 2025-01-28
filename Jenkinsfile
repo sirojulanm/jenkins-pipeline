@@ -8,17 +8,16 @@ pipeline {
     stages {
         stage("Build") { 
             steps {
-                echo "Hello Build Processed 1"
-                echo "Hello Build Processed 2"
-                echo "Hello Build Processed 3"
+                echo "Start Build"
+                sh("./mvnw clean compile test-compile")
+                echo "Finish Build"
             }
         }
         stage("Test") { 
             steps {
-                echo "Hello Test Processed 1"
-                echo "Hello Test Processed 2"
-                sleep(5)
-                echo "Hello Test Processed 3"
+                echo "Start test"
+                sh("./mvnw test")
+                echo "Finish test"
             }
         }
         stage("Deploy") { 
