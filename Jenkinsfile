@@ -12,6 +12,10 @@ pipeline {
         APP = credentials("anam_rahasia")
     }
 
+    triggers {
+        cron("*/5 * * * *")
+    }
+
     parameters {
         string(name: "NAME", defaultValue: "Guest", description: "what is your name")
         text(name: "DESCRIPTION", defaultValue: "Guest", description: "tell me about you")
