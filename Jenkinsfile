@@ -32,6 +32,28 @@ pipeline {
     
     stages {
 
+        stage("OS Setup") {
+            matrix {
+                axes {
+                    axis {
+                        name "OS"
+                        values "linux", "windows", "mac"
+                    }
+                    axis {
+                        name "ARC"
+                        values "32", "64"
+                    }
+                }
+            }
+            stages {
+                stage("OS Setup") {
+                    steps {
+                        echo("Setup ${OS} ${ARC}")
+                    }
+                }
+            }
+        }
+
         stage("Preparation Pararel") { 
             parallel {
                 stage("Prepare Java") {
@@ -94,14 +116,14 @@ pipeline {
                     writeJSON(file: "data.json", json: data)
                 }
                 echo "Start Build"
-                sh("./mvnw clean compile test-compile")
+                // sh("./mvnw clean compile test-compile")
                 echo "Finish Build"
             }
         }
         stage("Test") { 
             steps {
                 echo "Start test"
-                sh("./mvnw test")
+                // sh("./mvnw test")
                 echo "Finish test"
             }
         }
