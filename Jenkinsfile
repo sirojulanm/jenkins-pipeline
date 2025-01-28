@@ -9,7 +9,7 @@ pipeline {
     environment {
         AUTHOR = "Anam"
         EMAIL = "anam@gmail.com"
-        APP = credential("anam_rahasia")
+        APP = credentials("anam_rahasia")
     }
     
     stages {
@@ -21,7 +21,7 @@ pipeline {
                 echo "Start build: ${env.BUILD_NUMBER}"
                 echo "branch name: ${env.BRANCH_NAME}"
                 echo "app user: ${APP_USR}"
-                echo "app user: ${APP_PSW}"
+                echo "app password: ${APP_PSW}"
             }
         }
         stage("Build") { 
