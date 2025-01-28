@@ -80,13 +80,23 @@ pipeline {
                 message "can we deploy?"
                 ok "yes, of course"
                 parameters {
-                    choice(name: "SOCIAL_MEDIA", choices: ['dev','qa','prod'], description: "wich environment?")
+                    choice(name: "env", choices: ['dev','qa','prod'], description: "wich environment?")
                 }
             }
             steps {
                 echo "Hello Deploy Processed 1"
                 echo "Hello Deploy Processed 2"
                 echo "Hello Deploy Processed 3"
+            }
+        }
+        stage("Release") { 
+            when {
+                expression {
+                    return params.DEPLOY
+                }
+            }
+            steps {
+                echo "Release it..."
             }
         }
     }
