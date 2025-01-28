@@ -8,18 +8,23 @@ pipeline {
     stages {
         stage("Build") { 
             steps {
-                echo "Hello Build Processed"
+                echo "Hello Build Processed 1"
+                echo "Hello Build Processed 2"
+                echo "Hello Build Processed 3"
             }
         }
         stage("Test") { 
             steps {
-                echo "Hello Test Processed"
-                sh "error"
+                echo "Hello Test Processed 1"
+                echo "Hello Test Processed 2"
+                echo "Hello Test Processed 3"
             }
         }
         stage("Deploy") { 
             steps {
-                echo "Hello Deploy Processed"
+                echo "Hello Deploy Processed 1"
+                echo "Hello Deploy Processed 2"
+                echo "Hello Deploy Processed 3"
             }
         }
     }
