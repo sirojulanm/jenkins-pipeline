@@ -12,12 +12,31 @@ pipeline {
         APP = credentials("anam_rahasia")
     }
 
+    parameters {
+        string(name: "NAME", defaultValue: "Guest", description: "what is your name")
+        text(name: "DESCRIPTION", defaultValue: "Guest", description: "tell me about you")
+        booleanParam(name: "DEPLOY", defaultValue: false, description: "need to deploy")
+        choice(name: "SOCIAL_MEDIA", choices: ['instagram','facebook','twitter'], description: "need to deploy")
+        password(name: "SECRET", defaultValue: "", description: "Encrypt key")
+    }
+
     options {
         disableConcurrentBuilds()
         timeout(time: 5, unit: 'MINUTES')
     }
     
     stages {
+
+        stage("Parameter") { 
+            steps {
+                echo "hello: ${params.NAME}"
+                echo "your descrition is: ${params.DESCRIPTION}"
+                echo "your social media is: ${params.DEPLOY}"
+                echo "need to deploy: ${params.SOCIAL_MEDIA}"
+                echo "your secret is: ${params.SECRET}"
+            }
+        }
+
         stage("Prepare") { 
             steps {
                 echo "author: ${AUTHOR}"
