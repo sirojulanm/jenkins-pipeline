@@ -45,7 +45,7 @@ pipeline {
                     }
                 }
                 stages {
-                    stage("OS Setup") {
+                    stage("Setup") { 
                         steps {
                             echo("Setup ${OS} ${ARC}")
                         }
@@ -59,7 +59,7 @@ pipeline {
                         }
                         axis {
                             name "ARC"
-                            valued "32"
+                            values "32"
                         }
                     }
                 }
