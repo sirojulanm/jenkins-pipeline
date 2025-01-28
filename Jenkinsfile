@@ -51,6 +51,18 @@ pipeline {
                         }
                     }
                 }
+                excludes {
+                    exclude {
+                        axis {
+                            name "OS"
+                            values "mac"
+                        }
+                        axis {
+                            name "ARC"
+                            valued "32"
+                        }
+                    }
+                }
             }
         }
 
