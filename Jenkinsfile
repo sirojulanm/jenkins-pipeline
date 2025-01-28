@@ -11,6 +11,11 @@ pipeline {
         EMAIL = "anam@gmail.com"
         APP = credentials("anam_rahasia")
     }
+
+    options {
+        disableConcurrentBuilds()
+        timeout(time: 5, unit: 'MINUTES')
+    }
     
     stages {
         stage("Prepare") { 
